@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EX. 5</title>
+</head>
+
+<body>
+    <script>
+
+        var disney = 15000
+        var madrid = 12000
+        var maceio = 8000
+        var ribeiraoPreto = 5000
+
+        var nome = prompt("Digite o nome do usuario: ")
+        var valorUsuario = Number(prompt("Digite o valor que você possui: "))
+        var viagemDesejada = prompt("Digite qual viagem você deseja fazer: (Disney/Madrid/Maceió/Ribeirão Preto)")
+
+        switch (viagemDesejada) {
+            case "Disney":
+                if (valorUsuario >= disney) {
+                    alert(`O usuário ${nome} consegue viajar para ${viagemDesejada}`)
+                } else {
+                    let valorFaltando = disney - valorUsuario
+                    alert(`O usuario ${nome} não consegue viajar para ${viagemDesejada} faltando ${valorFaltando} reais`)
+                }
+                break
+            case "Madrid":
+                if (valorUsuario >= madrid) {
+                    alert(`O usuário ${nome} consegue viajar para ${viagemDesejada}`)
+                } else {
+                    let valorFaltando = madrid - valorUsuario
+                    alert(`O usuario ${nome} não consegue viajar para ${viagemDesejada} faltando ${valorFaltando} reais`)
+                }
+                break
+            case "Maceió":
+                if (valorUsuario >= maceio) {
+                    alert(`O usuário ${nome} consegue viajar para ${viagemDesejada}`)
+                } else {
+                    let valorFaltando = maceio - valorUsuario
+                    alert(`O usuario ${nome} não consegue viajar para ${viagemDesejada} faltando ${valorFaltando} reais`)
+                }
+                break
+            case "Ribeirão Preto":
+                if (valorUsuario >= ribeiraoPreto) {
+                    alert(`O usuário ${nome} consegue viajar para ${viagemDesejada}`)
+                } else {
+                    let valorFaltando = ribeiraoPreto - valorUsuario
+                    alert(`O usuario ${nome} não consegue viajar para ${viagemDesejada} faltando ${valorFaltando} reais`)
+                }
+                break
+            default:
+                alert("Opção invalida, tente novamente")
+        }
+
+
+    </script>
+</body>
+
+</html>
