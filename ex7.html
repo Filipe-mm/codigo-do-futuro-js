@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EX. 7</title>
+</head>
+
+<body>
+    <script>
+        var alunos = []
+
+        function pegaInformacoes() {
+
+            var quantAlunos = parseInt(prompt("Qual a quantidade de alunos que você deseja cadastrar: "))
+            var quantNotas = parseInt(prompt("Qual a quantidade de notas que você deseja atribuir para cada aluno: "))
+            var notasArray = []
+
+            for (let index = 1; index <= quantAlunos; index++) {
+                var nomeAluno = prompt(`Qual o nome do ${index}º aluno: `)
+                var matriculaInput = prompt(`Qual a matricula do ${nomeAluno}: `)
+                for (let index = 1; index <= quantNotas; index++) {
+
+                    var notaInput = parseFloat(prompt(`Digite a ${index}º nota do aluno ${nomeAluno}: `))
+                    notasArray.push(notaInput);
+                }
+                alunoObjet = { nome: nomeAluno, matricula: matriculaInput, notas: [...notasArray] }
+                alunos.push(alunoObjet)
+                notasArray.length = 0
+            }
+        }
+        function caculaMedia() {
+
+            for (let index = 0; index < alunos.length; index++) {
+                var mediaInput = (alunos[index].notas.reduce((a, b) => a + b)) / alunos[index].notas.length
+                alunos[index].media = mediaInput
+            }
+        }
+
+        function defineSituacao() {
+
+            for (let index = 0; index < alunos.length; index++) {
+                if (alunos[index].media >= 7) {
+                    alunos[index].situacao = "Aprovado(a)"
+                } else if (alunos[index].media < 7 && alunos[index].media > 5) {
+                    alunos[index].situacao = "Recuperação"
+                } else {
+                    alunos[index].situacao = "Reprovado(a)"
+                }
+            }
+
+        }
+
+        function imprimeConsole() {
+
+            for (let index = 0; index < alunos.length; index++) {
+                console.log(`O(A) aluno(a) ${alunos[index].nome} de matrícula ${alunos[index].matricula} está com a situação (${alunos[index].situacao}), e sua média ${alunos[index].media}`)
+            }
+
+        }
+
+        function main() {
+            pegaInformacoes()
+            caculaMedia()
+            defineSituacao()
+            imprimeConsole()
+        }
+
+        main()
+
+    </script>
+</body>
+
+</html>
